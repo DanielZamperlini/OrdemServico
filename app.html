@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App de Ordem de Serviço</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Adicione o link para a biblioteca jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div class="form-container">
+        <div class="form">
+            <div class="logoApp">
+                <img src="/img/DKCELL.png" alt="">
+                <span class="heading">Ordem de Serviço</span>
+            </div>
+            <input placeholder="valor do serviço: " type="number" id="valorServico" class="input">
+            <input placeholder="Cliente:" type="text" id="cliente" class="input">
+            <input placeholder="telefone:" type="text" id="phone" class="input">
+            <div class="input">
+                <label for="entrada" class="data">data entrada:</label>
+                <input type="date" id="entrada">
+                <label class="saida data" for="">previsão saida:</label>
+                <input type="date" id="saida">
+            </div>
+            <input placeholder="Marca do aparelho:" type="text" id="marca" class="input">
+            <input placeholder="Modelo do aparelho:" type="text" id="modelo" class="input">
+            <textarea placeholder="acessórios:" rows="2" cols="3" id="acessorios" name="message" class="textarea"></textarea>
+            <textarea placeholder="Descrição ou defeito:" rows="2" cols="30" id="descricao" name="defeito" class="textarea"></textarea>
+            <textarea placeholder="detalhes e observaçoes:" rows="2" cols="30" id="detalhes" name="detalhes" class="textarea"></textarea>
+            <div class="button-container">
+                <button class="send-button" onclick="gerarPDF()">Gerar PDF</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

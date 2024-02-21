@@ -123,9 +123,6 @@ body {
   background: #F70201;
   color: #001925;
 }
-label.saida {
-  padding-left: 100px;
-}
 label.data {
   color: #757575;
 }
@@ -146,4 +143,28 @@ input[type="date"] {
   padding-right: 10px;
   margin-left: 10px;
 
+}
+@media (max-width: 600px) {
+  .logoApp {
+    margin-top: 0px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logoApp img{
+    max-width: 180px;
+  }
+  .heading {
+    font-size: 0.75rem;
+    margin-bottom: 0px;
+  }
+  .form-container .form .input {
+    display: flex;
+    align-items: start;
+    gap: 5px;
+
+  }
+  label.saida {
+    padding-left: 0px;
+  }
+  
 }

@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App de Ordem de Serviço</title>
+    <title>Natal Solidário Uniasselvi</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="pesquisa.png" type="image/x-icon">
+    <link rel="shortcut icon" href="img/.png" type="image/x-icon">
     <!-- Adicione o link para a biblioteca jsPDF -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
 </head>
@@ -17,28 +17,42 @@
     <div class="form-container">
         <div class="form">
             <div class="logoApp">
-                <img src="img/DKCELL.png" alt="">
-                <span class="heading">Ordem de Serviço</span>
+                <img src="img/NatalSolidario.png" alt="">
+                <img src="img/presente.png" alt="">
             </div>
-            <input placeholder="valor do serviço: " type="number" id="valorServico" class="input">
-            <input placeholder="Cliente:" type="text" id="cliente" class="input">
+            <input placeholder="Nome do Responsável: " type="text" id="nomeResponsavel" class="input">
+            <input placeholder="idade:" type="text" id="idade" class="input">
             <input placeholder="telefone:" type="text" id="phone" class="input">
-            <div>
-                <div class="input">
-                 <label for="entrada" class="data">data entrada:</label>
-                 <input type="date" id="entrada">   
-                </div>
-                <div class="input">
-                 <label class="saida data" for="">previsão saida:</label>
-                 <input type="date" id="saida">   
-                </div>
-                
+            <input placeholder="endereço:" type="text" id="endereco" class="input">
+            <input placeholder="quantidade de crianças no endereço:" type="number" id="quantidadeCriancas" class="input">
+            <div class="child-info">
+                <input placeholder="Nome da Criança: " type="text" class="input Ncrianca" id="nomeCrianca1">
+                <input placeholder="Sexo:" type="text" class="input sexoCrianca" id="sexoCrianca1">
+                <input placeholder="Idade: " type="number" class="input idadeCrianca" id="idadeCrianca1">
             </div>
-            <input placeholder="Marca do aparelho:" type="text" id="marca" class="input">
-            <input placeholder="Modelo do aparelho:" type="text" id="modelo" class="input">
-            <textarea placeholder="acessórios:" rows="2" cols="3" id="acessorios" name="message" class="textarea"></textarea>
-            <textarea placeholder="Descrição ou defeito:" rows="2" cols="30" id="descricao" name="defeito" class="textarea"></textarea>
-            <textarea placeholder="detalhes e observaçoes:" rows="2" cols="30" id="detalhes" name="detalhes" class="textarea"></textarea>
+            <div class="child-info">
+                <input placeholder="Nome da Criança: " type="text" class="input Ncrianca" id="nomeCrianca2">
+                <input placeholder="Sexo:" type="text" class="input sexoCrianca" id="sexoCrianca2">
+
+                <input placeholder="Idade: " type="number" class="input idadeCrianca" id="idadeCrianca2">
+
+            </div>
+            <div class="child-info">
+                <input placeholder="Nome da Criança: " type="text" class="input Ncrianca" id="nomeCrianca3">
+                <input placeholder="Sexo:" type="text" class="input sexoCrianca" id="sexoCrianca3">
+
+                <input placeholder="Idade: " type="number" class="input idadeCrianca" id="idadeCrianca3">
+            </div>
+            <div class="child-info">
+                <input placeholder="Nome da Criança: " type="text" class="input Ncrianca" id="nomeCrianca4">
+                <input placeholder="Sexo:" type="text" class="input sexoCrianca" id="sexoCrianca4">
+                <input placeholder="Idade: " type="number" class="input idadeCrianca" id="idadeCrianca4">
+            </div>
+            <div class="child-info">
+                <input placeholder="Nome da Criança: " type="text" class="input Ncrianca" id="nomeCrianca5">
+                <input placeholder="Sexo:" type="text" class="input sexoCrianca" id="sexoCrianca5">
+                <input placeholder="Idade: " type="number" class="input idadeCrianca" id="idadeCrianca5">
+            </div>
             <div class="button-container">
                 <button class="send-button" onclick="gerarPDF()">Gerar PDF</button>
             </div>

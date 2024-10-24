@@ -1,143 +1,110 @@
 function gerarPDF() {
   // Obter dados do formulário
-  const valorServico = document.getElementById('valorServico').value;
-  const cliente = document.getElementById('cliente').value;
+  const nomeResponsavel = document.getElementById('nomeResponsavel').value;
+  const idade = document.getElementById('idade').value;
   const phone = document.getElementById('phone').value;
-  const marca = document.getElementById('marca').value;
-  const modelo = document.getElementById('modelo').value;
-  const descricao = document.getElementById('descricao').value;
-  const detalhes = document.getElementById('detalhes').value;
-  const acessorios = document.getElementById('acessorios').value;
-  const entrada = document.getElementById('entrada').value;
-  const saida = document.getElementById('saida').value;
+  const endereco = document.getElementById('endereco').value;
+  const quantidadeCriancas =
+    document.getElementById('quantidadeCriancas').value;
+  const nomeCrianca1 = document.getElementById('nomeCrianca1').value;
+  const sexoCrianca1 = document.getElementById('sexoCrianca1').value;
+  const idadeCrianca1 = document.getElementById('idadeCrianca1').value;
+  const nomeCrianca2 = document.getElementById('nomeCrianca2').value;
+  const sexoCrianca2 = document.getElementById('sexoCrianca2').value;
+  const idadeCrianca2 = document.getElementById('idadeCrianca2').value;
+  const nomeCrianca3 = document.getElementById('nomeCrianca3').value;
+  const sexoCrianca3 = document.getElementById('sexoCrianca3').value;
+  const idadeCrianca3 = document.getElementById('idadeCrianca3').value;
+  const nomeCrianca4 = document.getElementById('nomeCrianca4').value;
+  const sexoCrianca4 = document.getElementById('sexoCrianca4').value;
+  const idadeCrianca4 = document.getElementById('idadeCrianca4').value;
+  const nomeCrianca5 = document.getElementById('nomeCrianca5').value;
+  const sexoCrianca5 = document.getElementById('sexoCrianca5').value;
+  const idadeCrianca5 = document.getElementById('idadeCrianca5').value;
 
   // Criar instância jsPDF
   const pdf = new jsPDF();
 
   // Definir tamanho da fonte
-  pdf.setFontSize(10); // Ajuste o valor conforme necessário
+  pdf.setFontSize(15); // Ajuste o valor conforme necessário
 
   // Adicionar logo ou imagem ao PDF
   const logoImg = new Image();
-  logoImg.src = 'img/DKCELL.png'; // Substitua com o caminho para sua imagem
-  pdf.addImage(logoImg, 'PNG', 5, 5, 40, 20); // Parâmetros
-  pdf.addImage(logoImg, 'PNG', 5, 120, 40, 20); // Parâmetros
+  logoImg.src = 'img/natalLogo.png'; // Substitua com o caminho para sua imagem
+  pdf.addImage(logoImg, 'PNG', 10, 15, 60, 40); // Parâmetros
 
-  const celllockImg = new Image();
-  celllockImg.src = 'img/senha.jpg'; // Substitua com o caminho para sua imagem
-  pdf.addImage(celllockImg, 'PNG', 135, 195, 25, 40); // Parâmetros
+  const presentImg = new Image();
+  presentImg.src = 'img/presente.png';
+  pdf.addImage(presentImg, 'PNG', 135, 10, 60, 40); // Parâmetros
 
-  const lockImg2 = new Image();
-  lockImg2.src = 'img/senha2.jpg'; // Substitua com o caminho para sua imagem
-  pdf.addImage(lockImg2, 'PNG', 170, 195, 20, 25); // Parâmetros
+  const UniasselvitImg = new Image();
+  UniasselvitImg.src = 'img/uniasselvi.png';
+  pdf.addImage(UniasselvitImg, 'PNG', 85, 20, 30, 20); // Parâmetros
+  pdf.addImage(UniasselvitImg, 'PNG', 85, 255, 30, 20); // Parâmetros
+
+  const enfeitesImg = new Image();
+  enfeitesImg.src = 'img/enfeites.png';
+  pdf.addImage(enfeitesImg, 'PNG', -5, -5, 50, 60); // Parâmetros
+
+  const arvoreImg = new Image();
+  arvoreImg.src = 'img/arvore.png';
+  pdf.addImage(arvoreImg, 'PNG', 140, 210, 70, 90); // Parâmetros
+
+  const feliznatalImg = new Image();
+  feliznatalImg.src = 'img/feliznatal.png';
+  pdf.addImage(feliznatalImg, 'PNG', 5, 240, 60, 60); // Parâmetros
 
   // retangulos criados
-  // via do cliente
-  pdf.rect(110, 15, 95, 7); // Retângulo para "VALOR DO SERVIÇ0"
-  pdf.rect(5, 25, 100, 7); // Retângulo para "Nome do cliente: "
-  pdf.rect(110, 25, 95, 7); // Retângulo para "telefone"
-  pdf.rect(5, 35, 100, 7); // Retângulo para "marca"
-  pdf.rect(110, 35, 95, 7); // Retângulo para "modelo"
-  pdf.rect(5, 45, 100, 21); // Retângulo para "acessorios: "
-  pdf.rect(110, 45, 95, 21); // Retângulo para "detalhes"
-  pdf.rect(5, 80, 200, 7); // Retângulo para "endereço"
+  pdf.rect(5, 62, 200, 20); // Retângulo para "Responsável"
+  pdf.rect(5, 82, 200, 10); // Retângulo para "Responsável"
+  pdf.rect(5, 92, 200, 10); // Retângulo para "Responsável"
+  pdf.rect(5, 102, 200, 10); // Retângulo para "Responsável"
+  pdf.rect(5, 112, 200, 10); // Retângulo para "Responsável"
 
-  pdf.rect(5, 70, 135, 7); // Retângulo para "entrada e saida"
-  pdf.rect(142, 70, 63, 7); // Retângulo para "contato"
-
-  pdf.rect(5, 90, 170, 22); // CONDIÇÃO DE EXECUÇAO
-  pdf.rect(177, 90, 28, 22); // Retângulo para assinatura
-
-  pdf.rect(5, 115, 200, 1); // Retângulo para separar via cliente e interna
-
-  // via interna
-  pdf.rect(110, 130, 95, 7); // Retângulo para "VALOR DO SERVIÇ0"
-  pdf.rect(5, 140, 100, 7); // Retângulo para "Nome do cliente: "
-  pdf.rect(110, 140, 95, 7); // Retângulo para "telefone"
-  pdf.rect(5, 150, 100, 7); // Retângulo para "marca"
-  pdf.rect(110, 150, 95, 7); // Retângulo para "modelo"
-  pdf.rect(5, 160, 200, 7); // Retângulo para "acessorios"
-  pdf.rect(5, 170, 200, 7); // Retângulo para "descrição"
-
-  pdf.rect(130, 190, 75, 47); // Retângulo para senha
-  pdf.rect(164, 223, 32, 8); // Retângulo para senha
-
-  pdf.rect(5, 190, 57, 7); // Retângulo para "entrada"
-  pdf.rect(63, 190, 62, 7); // Retângulo para "saida"
-  pdf.rect(5, 200, 120, 37); // Retângulo para "condição"
-
-  pdf.rect(5, 242, 200, 14); // Retângulo para "detalhes"
-  pdf.rect(5, 260, 200, 14); // Retângulo para "laudo"
-  pdf.rect(5, 278, 200, 14); // Retângulo para "descrição"
+  pdf.rect(5, 132, 200, 20); // Retângulo para "Criança"
+  pdf.rect(5, 152, 200, 10); // Retângulo para "Criança"
+  pdf.rect(5, 162, 200, 10); // Retângulo para "Criança"
+  pdf.rect(5, 172, 200, 10); // Retângulo para "Criança"
+  pdf.rect(5, 182, 200, 10); // Retângulo para "Criança"
+  pdf.rect(5, 192, 200, 10); // Retângulo para "Criança"
+  pdf.rect(5, 202, 200, 10); // Retângulo para "Criança"
 
   // Adicionar conteúdo ao PDF
   //cliente
-  pdf.text(`VIA CLIENTE`, 170, 10);
-  pdf.text(`Valor do serviço: R$ ${valorServico}`, 112, 20);
-  pdf.text(`Cliente: ${cliente}`, 6, 30);
-  pdf.text(`Telefone: ${phone}`, 111, 30);
-  pdf.text(`Marca: ${marca}`, 6, 40);
-  pdf.text(`Modelo: ${modelo}`, 111, 40);
+  pdf.text(`Folha de Cadastro`, 80, 60);
+  pdf.text(`Informações sobre O responsável :`, 6, 70);
+  pdf.text(`Nome do Responsável : ${nomeResponsavel}`, 6, 90);
+  pdf.text(`Idade : ${idade}`, 6, 100);
+  pdf.text(`Telefone : ${phone}`, 6, 110);
+  pdf.text(`Endereço: ${endereco}`, 6, 120);
 
-  pdf.text(`acessorios:`, 6, 50);
-  pdf.text(`detalhes e observações: `, 111, 50);
-  const acessorioslines = pdf.splitTextToSize(acessorios, 90);
-  pdf.text(acessorioslines, 6, 56);
-  const detalheslines = pdf.splitTextToSize(detalhes, 90);
-  pdf.text(detalheslines, 111, 56);
-
-  pdf.text(`data entrada: ${entrada} previsão saída: ${saida}`, 6, 75);
-  pdf.text(`contato:(91)98206-6009`, 143, 75);
+  pdf.text(`Informações sobre as crianças`, 6, 140);
   pdf.text(
-    `Endereço: Mercado municipal de Marituba  |  Bairro Centro  |  BOX 179`,
+    `Quantidade de crianças na residência: ${quantidadeCriancas}`,
     6,
-    85,
+    160,
   );
 
-  pdf.text(`CARIMBO`, 178, 95);
-  pdf.text(`CONDIÇÃO DE EXECUÇÃO: Atenção, a não retirada do `, 6, 95);
-  pdf.text(
-    `aparelho no prazo de 30 dias serão acrecidos 10% no valor, após`,
-    6,
-    100,
-  );
-  pdf.text(
-    `60 dias implicará na venda do mesmo para pagamento de gastos`,
-    6,
-    105,
-  );
-  pdf.text(`(art. 06. item 03 do codigo de defesa do consumidor)`, 6, 110);
+  pdf.text(`Nome da criança: ${nomeCrianca1}`, 6, 170);
+  pdf.text(`Sexo: ${sexoCrianca1}`, 116, 170);
+  pdf.text(`Idade: ${idadeCrianca1}`, 166, 170);
 
-  // tecnico
-  pdf.text(`VIA TÉCNICO`, 170, 125);
-  pdf.text(`Valor do serviço: R$ ${valorServico}`, 112, 135);
-  pdf.text(`Cliente: ${cliente}`, 6, 145);
-  pdf.text(`Telefone: ${phone}`, 111, 145);
-  pdf.text(`Marca: ${marca}`, 6, 155);
-  pdf.text(`Modelo: ${modelo}`, 111, 155);
-  pdf.text(`acessorios:  ${acessorios}`, 6, 166);
-  pdf.text(`Assinatura do cliente :`, 6, 175);
+  pdf.text(`Nome da criança: ${nomeCrianca2}`, 6, 180);
+  pdf.text(`Sexo: ${sexoCrianca2}`, 116, 180);
+  pdf.text(`Idade: ${idadeCrianca2}`, 166, 180);
 
-  pdf.text(`entrada: ${entrada}`, 6, 196);
-  pdf.text(`saída: ${saida}`, 64, 196);
-  pdf.text(`senha`, 139, 195);
+  pdf.text(`Nome da criança: ${nomeCrianca3}`, 6, 190);
+  pdf.text(`Sexo: ${sexoCrianca3}`, 116, 190);
+  pdf.text(`Idade: ${idadeCrianca3}`, 166, 190);
 
-  pdf.text(`condição de execução: Atenção, a não retirada`, 6, 207);
-  pdf.text(`do aparelho no prazo de 30 dias serão`, 6, 212);
-  pdf.text(`acrecidos 10% no valor, após 60 dias`, 6, 217);
-  pdf.text(`implicará na vendado mesmo para pagamento `, 6, 222);
-  pdf.text(`de gastos (art. 06. item 03 do codigo de `, 6, 227);
-  pdf.text(`defesa do consumidor)`, 6, 232);
+  pdf.text(`Nome da criança: ${nomeCrianca4}`, 6, 200);
+  pdf.text(`Sexo: ${sexoCrianca4}`, 116, 200);
+  pdf.text(`Idade: ${idadeCrianca4}`, 166, 200);
 
-  // Dividir a descrição em linhas para ajustar ao tamanho do retângulo
-  pdf.text(`Detalhes e observações: `, 6, 247);
-  const detalhestecnico = pdf.splitTextToSize(detalhes, 180);
-  pdf.text(detalhestecnico, 6, 254);
-  pdf.text(`laudo tecnico: `, 6, 265);
-  pdf.text(`Descição ou defeito do aparelho : `, 6, 283);
-  const descricaoLines = pdf.splitTextToSize(descricao, 180);
-  pdf.text(descricaoLines, 6, 289);
+  pdf.text(`Nome da criança: ${nomeCrianca5}`, 6, 210);
+  pdf.text(`Sexo: ${sexoCrianca5}`, 116, 210);
+  pdf.text(`Idade: ${idadeCrianca5}`, 166, 210);
 
   // Salvar o PDF ou exibir no navegador
-  pdf.save('OrdemDeServico.pdf');
+  pdf.save('CadastroNatalSolidario.pdf');
 }

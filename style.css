@@ -14,7 +14,7 @@ body {
 .logoApp img {
   margin: 0;
   padding: 0;
-  max-width: 130px;
+  max-width: 200px;
 }
 .logoApp h1 {
   margin: 0;
@@ -194,5 +194,11 @@ input[type='date'] {
   }
   label.saida {
     padding-left: 0px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logoApp img {
+    max-width: 100px;
   }
 }
